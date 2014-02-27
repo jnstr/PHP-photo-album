@@ -1,0 +1,121 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+body {
+  line-height: 1; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+nav ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none; }
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+del {
+  text-decoration: line-through; }
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0; }
+
+input, select {
+  vertical-align: middle; }
+
+body {
+  font-family: verdana, arial;
+  background: #c3baae; }
+
+h1 {
+  text-align: center;
+  padding: .5em 0;
+  font-size: 36px;
+  font-weight: normal;
+  display: block;
+  text-align: center;
+  color: #3b3838;
+  font-family: 'Comfortaa', cursive; }
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+  float: left;
+  overflow: hidden; }
+  a img {
+    display: block;
+    width: 100%;
+    opacity: .8;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -ms-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s; }
+    a img:hover {
+      opacity: 1; }
+
+div#form {
+  width: 300px;
+  margin: auto; }
+  div#form form label {
+    display: block;
+    font-family: 'Comfortaa', cursive; }
+  div#form form input {
+    display: block;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    height: 35px;
+    margin-top: 7px;
+    border: 1px solid #649EBF; }
+    div#form form input[type=submit] {
+      background: #649EBF;
+      color: white; }
+  div#form .errors {
+    font-size: 11px;
+    color: red; }
+
+@media (min-width: 500px) {
+  a {
+    width: 50%; } }
+@media (min-width: 800px) {
+  a {
+    width: 33.33333%; } }
+@media (min-width: 1050px) {
+  a {
+    width: 25%; } }
+@media (min-width: 1600px) {
+  a {
+    width: 20%; } }
