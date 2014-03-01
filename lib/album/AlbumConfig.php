@@ -14,10 +14,10 @@ class AlbumConfig {
 	public function setup() {
 		// get the request uri
 		$request = $this->getRequest();
-		// get the album config
-		$this->getConfig($request);
 		// set the vars
 		$this->setVars($request);
+		// get the album config
+		$this->getConfig($request);
 	}
 
 	/**
@@ -41,14 +41,22 @@ class AlbumConfig {
 	}
 
 	/**
-	 * Get the config file (website_root/config/config.php)
+	 * Get the config file from the album folder
 	 *
 	 * @param $requestUri
 	 */
 	private function getConfig($requestUri) {
 		// set the config file
-		$config = $_SERVER['DOCUMENT_ROOT'] . "$requestUri/config/config.php";
+		$config = ALBUM_PATH . "/config.php";
 		require_once($config);
+	}
+
+	/**
+	 * Gets the album folder name from the query string
+	 */
+	private function defineAlbumFolderName() {
+		if (!isset($_GET['album'])) Error::displayErrorPage(404);
+		define('ALBUM_FOLDER',$_GET['album']);
 	}
 
 	/**
@@ -57,16 +65,23 @@ class AlbumConfig {
 	 * @param $requestUri
 	 */
 	private function setVars($requestUri) {
-		// set the paths
-		define("ALBUM_PATH",str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'] . "$requestUri/album"));
-		define("ALBUM_PATH_ORIGINAL", ALBUM_PATH . '/original');
-		define("ALBUM_PATH_THUMBNAILS", ALBUM_PATH . '/thumbnails');
-
-		// define the path for the view files
-		define("VIEW_PATH", $_SERVER['DOCUMENT_ROOT'] . "$requestUri/view");
-
 		// define the include folder
 		define ("INCLUDE_FOLDER", $_SERVER['DOCUMENT_ROOT'] . "$requestUri/includes");
+
+		// define the album folder name
+		$this->defineAlbumFolderName();
+
+		// define the path for the view files
+		define("VIEW_PATH", $_SERVER['DOCUMENT_ROOT'] . "$requestUri/albums/" . ALBUM_FOLDER . "/view");
+
+		// the path for the album
+		define("ALBUM_PATH",str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'] . "$requestUri/albums/" . ALBUM_FOLDER . "/"));
+		// does the album folder exist?
+		if (!is_dir(ALBUM_PATH)) Error::displayErrorPage(404);
+
+		// the path where the images are stored
+		define("ALBUM_PATH_ORIGINAL", ALBUM_PATH . '/original');
+		define("ALBUM_PATH_THUMBNAILS", ALBUM_PATH . '/thumbnails');
 	}
 
 

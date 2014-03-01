@@ -1,0 +1,9 @@
+
+# rewrites
+RewriteEngine On
+
+RewriteBase /
+
+# redirect to the images in an album
+RewriteRule ^([^/]+)/t/([^/]+) /albums/$1/thumbnails/$2 [L,QSA]
+RewriteRule ^([^/]+)/o/([^/]+) /albums/$1/original/$2 [L,QSA]

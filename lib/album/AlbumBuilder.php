@@ -67,7 +67,7 @@ class AlbumBuilder {
 	 * Generate the view
 	 */
 	protected function generateView() {
-		if (!defined('ALBUM_NAME')) define('ALBUM_NAME','album');
+		if (!defined('ALBUM_NAME')) define('ALBUM_NAME',ALBUM_FOLDER);
 
 		// scan thumbnail folder
 		$files = scandir(ALBUM_PATH_THUMBNAILS);
@@ -83,12 +83,10 @@ class AlbumBuilder {
 
 			// check if both thumbnail & original exist
 			if (file_exists($filePath) && file_exists($thumbPath)) {
-				$string = <<<imageString
-					<a href="./album/original/$file" title="$file"  >
-						<img src="./includes/img/loader.gif" data-src="./album/thumbnails/$file" />
-					</a>
-
-imageString;
+				$string =
+					'<a href="/' . ALBUM_FOLDER . '/o/' . $file . '" title="' . $file . '"  >
+						<img src="./includes/img/loader.gif" data-src="/' . ALBUM_FOLDER . '/t/' . $file . '" />
+					</a>';
 				$imageString .= $string;
 			}
 		}
@@ -110,9 +108,8 @@ imageString;
 
 		// create view
 		$content = $layout;
-		$fp = fopen("./view/index.html","wb");
+		$fp = fopen(VIEW_PATH . '/index.html',"wb");
 		fwrite($fp,$content);
 		fclose($fp);
 	}
-
 }
