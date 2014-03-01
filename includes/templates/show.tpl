@@ -7,7 +7,7 @@
     $(function() {
         $('div').magnificPopup({
             type: 'image',
-            delegate: 'a',
+            delegate: 'a.popup',
             gallery: {
                 enabled: true
             }

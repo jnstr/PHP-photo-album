@@ -26,6 +26,8 @@ class AlbumConfig {
 	 * @return mixed
 	 */
 	private function getRequest() {
+		return '';
+
 		$request = $_SERVER['REQUEST_URI'];
 
 		// drop off the get params

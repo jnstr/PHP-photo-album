@@ -84,9 +84,12 @@ class AlbumBuilder {
 			// check if both thumbnail & original exist
 			if (file_exists($filePath) && file_exists($thumbPath)) {
 				$string =
-					'<a href="/' . ALBUM_FOLDER . '/o/' . $file . '" title="' . $file . '"  >
-						<img src="./includes/img/loader.gif" data-src="/' . ALBUM_FOLDER . '/t/' . $file . '" />
-					</a>';
+					'<figure class="image">
+						<a class="popup" href="/' . ALBUM_FOLDER . '/o/' . $file . '" title="' . $file . '"  >
+							<img src="./includes/img/loader.gif" data-src="/' . ALBUM_FOLDER . '/t/' . $file . '" />
+						</a>
+						<a href="/' . ALBUM_FOLDER . '/d/' . $file . '" title="' . $file . '" class="download" >download</a>
+					</figure>';
 				$imageString .= $string;
 			}
 		}

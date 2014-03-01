@@ -13,6 +13,10 @@ class Album {
 		$auth = new AlbumAuth();
 		$auth->auth();
 
+		// download a single image
+		$download = new AlbumDownload();
+		$download->downloadImage();
+
 		// build the album
 		$build = new AlbumBuilder();
 		$build->build();

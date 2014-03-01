@@ -11,6 +11,17 @@ table { border-collapse:collapse; border-spacing:0; }
 hr { display:block; height:1px; border:0; border-top:1px solid #cccccc; margin:1em 0; padding:0; }
 input, select { vertical-align:middle; }
 
+@font-face {
+	font-family: 'icofont';
+	src:url('../fonts/icofont.eot?-op6th0');
+	src:url('../fonts/icofont.eot?#iefix-op6th0') format('embedded-opentype'),
+	url('../fonts/icofont.woff?-op6th0') format('woff'),
+	url('../fonts/icofont.ttf?-op6th0') format('truetype'),
+	url('../fonts/icofont.svg?-op6th0#icofont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
 body {
 	font-family: verdana, arial;
 	background: #c3baae;
@@ -31,12 +42,13 @@ h1 {
 	font-family: 'Comfortaa', cursive;
 }
 
-a {
+figure.image {
 	text-decoration: none;
 	display: inline-block;
 	width: 100%;
 	float: left;
 	overflow: hidden;
+	position: relative;
 	img {
 		display: block;
 		width: 100%;
@@ -48,6 +60,42 @@ a {
 		transition: all .2s;
 		&:hover {
 			opacity: 1;
+		}
+	}
+	a.download {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		color: white;
+		text-decoration: none;
+		padding: 6px;
+		width: 100%;
+		text-align: right;
+		background: #666;
+		background: rgba(102,102,102,.8);
+
+		background: -moz-linear-gradient(left,  rgba(102,102,102,0) 0%, rgba(102,102,102,0.8) 100%);
+		background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(102,102,102,0)), color-stop(100%,rgba(102,102,102,0.8)));
+		background: -webkit-linear-gradient(left,  rgba(102,102,102,0) 0%,rgba(102,102,102,0.8) 100%);
+		background: -o-linear-gradient(left,  rgba(102,102,102,0) 0%,rgba(102,102,102,0.8) 100%);
+		background: -ms-linear-gradient(left,  rgba(102,102,102,0) 0%,rgba(102,102,102,0.8) 100%);
+		background: linear-gradient(to right,  rgba(102,102,102,0) 0%,rgba(102,102,102,0.8) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00666666', endColorstr='#cc666666',GradientType=1 );
+
+
+		&:before {
+			font-family: 'icofont';
+			padding-right: 4px;
+			//font-size: 18px;
+			speak: none;
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			text-transform: none;
+			line-height: 1;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			content: "\e600";
 		}
 	}
 }
@@ -83,26 +131,26 @@ div#form {
 }
 
 @media (min-width: 500px) {
-	a {
+	figure.image {
 		width: 50%;
 	}
 }
 
 
 @media (min-width: 800px) {
-	a {
+	figure.image {
 		width: 33.33333%;
 	}
 }
 
 @media (min-width: 1050px) {
-	a {
+	figure.image {
 		width: 25%;
 	}
 }
 
 @media (min-width: 1600px) {
-	a {
+	figure.image {
 		width: 20%;
 	}
 }
