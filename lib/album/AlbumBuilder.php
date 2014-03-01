@@ -46,8 +46,8 @@ class AlbumBuilder {
 		$files = scandir(ALBUM_PATH_ORIGINAL);
 
 		foreach ($files as $file) {
-			// skip current & parent folder
-			if ($file == '.' || $file == '..') continue;
+			// skip current & parent folder (or hidden files)
+			if (substr($file, 0, 1) === '.') continue;
 
 			// the file path
 			$filePath = ALBUM_PATH_ORIGINAL . "/$file";
@@ -75,7 +75,7 @@ class AlbumBuilder {
 		$imageString = '';
 
 		foreach ($files as $file) {
-			if ($file == '.' || $file == '..') continue;
+			if (substr($file, 0, 1) === '.') continue;
 
 			// the file path
 			$filePath = ALBUM_PATH_ORIGINAL . "/$file";
