@@ -34,14 +34,14 @@ albums (this one already exists :) )
 
 
 Add you full-res images to the original-folder and use your browser to navigate to the location of the website.
-Define the album you want to show by adding the 'album' get-parameter to the url with the name of your album.
-Like this: http://www.just-some-non-existing-url.com/?album=albumname
+Define the album you want to show by adding the album name to the url.
+Like this: http://www.just-some-non-existing-url.com/albumname
 
 The thumbnails will be generated using the PHP GD extension.
 When the thumnbails are generated, an index.html will be generated in the view-folder to speed up future loading of the page.
 
-If you want to rebuild the album (including thumbnails), just add the 'rebuild' get-parameter to the url with a value of 1.
-The URL becomes: http://www.just-some-non-existing-url.com/?album=albumname?rebuild=1
+If you want to rebuild the album (including thumbnails), just add the 'rebuild' to the album url:
+The URL becomes: http://www.just-some-non-existing-url.com/albumname/rebuild
 This deletes the index.html file in the view-folder, and all the thumbnails to re-create the whole album.
 This can come in handy if you want a new album title of if you updated some images.
 
@@ -60,8 +60,6 @@ still to do
 --------------
 
 - setup htaccess to prevent browsing to the php-files
-- support good old IE8
-- update the .htaccess so the url can be http://www.just-some-non-existing-url.com/albumname instead of http://www.just-some-non-existing-url.com/?album=albumname
 - make the rebuild more save (so not everybody can fire ?rebuild=1)
 - use namespaces
 - rewrite some bits
