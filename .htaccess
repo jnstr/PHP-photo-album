@@ -9,3 +9,9 @@ RewriteRule ^([a-zA-Z0-9]+)/rebuild /?album=$1&rebuild=1 [L]
 RewriteRule ^([^/]+)/t/([^/]+) /albums/$1/thumbnails/$2 [L,QSA]
 RewriteRule ^([^/]+)/o/([^/]+) /albums/$1/original/$2 [L,QSA]
 RewriteRule ^([^/]+)/d/([^/]+) /index.php?album=$1&file=$2 [L,QSA]
+
+# no access for the files in an album
+RewriteRule albums/([a-zA-Z0-9]+)/config.php / [L]
+RewriteCond %{REQUEST_URI} !^/albums/([a-zA-Z0-9]+)/original [NC]
+RewriteCond %{REQUEST_URI} !^/albums/([a-zA-Z0-9]+)/thumbnails [NC]
+RewriteRule albums/([a-zA-Z0-9]+)/ / [L]
