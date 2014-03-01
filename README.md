@@ -25,10 +25,15 @@ If you want to use this photo album on your web space, the only folder that matt
 For each album that you want to create, you have to create this folder structure:
 albums (this one already exists :) )
 ├── albumname
+
 │   ├── original
+
 │   ├── thumbnails
+
 │   ├── view
+
 │   ├── config.php
+
 
 
 Add you full-res images to the original-folder and use your browser to navigate to the location of the website.
