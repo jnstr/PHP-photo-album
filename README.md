@@ -66,7 +66,6 @@ still to do
 - use namespaces
 - rewrite some bits
 - make it possible to download a zip of all images
-- add a download-link on each thumbnail for easier downloading of the image
 - Finish this readme
 - ...
 
