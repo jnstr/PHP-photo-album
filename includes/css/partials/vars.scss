@@ -1,0 +1,16 @@
+// Define the colors here
+$background-color: #eee;
+$header-color: #009587;
+$accent-color: $header-color;
+
+// Define the fonts here
+@font-face {
+    font-family: 'icofont';
+    src:url('../fonts/icofont.eot?-op6th0');
+    src:url('../fonts/icofont.eot?#iefix-op6th0') format('embedded-opentype'),
+    url('../fonts/icofont.woff?-op6th0') format('woff'),
+    url('../fonts/icofont.ttf?-op6th0') format('truetype'),
+    url('../fonts/icofont.svg?-op6th0#icofont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

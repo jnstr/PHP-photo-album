@@ -52,6 +52,9 @@ hr {
 input, select {
   vertical-align: middle; }
 
+* {
+  box-sizing: border-box; }
+
 @font-face {
   font-family: 'icofont';
   src: url("../fonts/icofont.eot?-op6th0");
@@ -61,20 +64,40 @@ input, select {
 
 body {
   font-family: verdana, arial;
-  background: #c3baae; }
+  background: #eeeeee; }
 
 .center {
   text-align: center; }
 
-h1 {
-  text-align: center;
-  padding: .5em 0;
-  font-size: 36px;
-  font-weight: normal;
-  display: block;
-  text-align: center;
-  color: #3b3838;
-  font-family: 'Comfortaa', cursive; }
+#header {
+  background: #009587;
+  height: 14rem;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.23), 0px 3px 10px rgba(0, 0, 0, 0.16); }
+  #header h1 {
+    text-align: center;
+    padding: .5em 0;
+    font-family: 'Comfortaa', cursive;
+    font-weight: normal;
+    font-size: 36px;
+    display: block;
+    color: white;
+    line-height: 6rem; }
+
+.contentContainer {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -6rem;
+  margin-bottom: 2rem;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.23), 0px 3px 10px rgba(0, 0, 0, 0.16);
+  border-radius: 2px;
+  background: white;
+  overflow: auto;
+  padding: 4rem 2rem; }
+  @media (min-width: 500px) {
+    .contentContainer {
+      width: 90%;
+      max-width: 1125px; } }
 
 figure.image {
   text-decoration: none;
@@ -83,47 +106,59 @@ figure.image {
   float: left;
   overflow: hidden;
   position: relative; }
+  @media (min-width: 500px) {
+    figure.image {
+      width: 50%; } }
+  @media (min-width: 1050px) {
+    figure.image {
+      width: 33.33333%; } }
   figure.image img {
     display: block;
     width: 100%;
-    opacity: .8;
-    -webkit-transition: all .2s;
-    -moz-transition: all .2s;
-    -ms-transition: all .2s;
-    -o-transition: all .2s;
-    transition: all .2s; }
+    margin: auto;
+    margin-bottom: 3rem;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s; }
+    @media (min-width: 500px) {
+      figure.image img {
+        width: 90%; } }
     figure.image img:hover {
       opacity: 1; }
   figure.image a.download {
     position: absolute;
-    bottom: 0;
+    bottom: 2rem;
     right: 0;
     color: white;
     text-decoration: none;
     padding: 6px;
-    width: 100%;
-    text-align: right;
-    background: #666;
-    background: rgba(102, 102, 102, 0.8);
-    background: -moz-linear-gradient(left, rgba(102, 102, 102, 0) 0%, rgba(102, 102, 102, 0.8) 100%);
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(102, 102, 102, 0)), color-stop(100%, rgba(102, 102, 102, 0.8)));
-    background: -webkit-linear-gradient(left, rgba(102, 102, 102, 0) 0%, rgba(102, 102, 102, 0.8) 100%);
-    background: -o-linear-gradient(left, rgba(102, 102, 102, 0) 0%, rgba(102, 102, 102, 0.8) 100%);
-    background: -ms-linear-gradient(left, rgba(102, 102, 102, 0) 0%, rgba(102, 102, 102, 0.8) 100%);
-    background: linear-gradient(to right, rgba(102, 102, 102, 0) 0%, rgba(102, 102, 102, 0.8) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00666666', endColorstr='#cc666666',GradientType=1 ); }
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 37px;
+    background: #009587;
+    font-size: 1.5rem;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.23), 0px 3px 10px rgba(0, 0, 0, 0.16);
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s; }
     figure.image a.download:before {
       font-family: 'icofont';
-      padding-right: 4px;
       speak: none;
       font-style: normal;
       font-weight: normal;
       font-variant: normal;
       text-transform: none;
-      line-height: 1;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       content: "\e600"; }
+    figure.image a.download:hover {
+      background: #006259; }
 
 div#form {
   width: 300px;
@@ -135,28 +170,12 @@ div#form {
     display: block;
     width: 100%;
     margin: 0;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     height: 35px;
     margin-top: 7px;
-    border: 1px solid #649EBF; }
+    border: 1px solid #009587; }
     div#form form input[type=submit] {
-      background: #649EBF;
+      background: #009587;
       color: white; }
   div#form .errors {
     font-size: 11px;
     color: red; }
-
-@media (min-width: 500px) {
-  figure.image {
-    width: 50%; } }
-@media (min-width: 800px) {
-  figure.image {
-    width: 33.33333%; } }
-@media (min-width: 1050px) {
-  figure.image {
-    width: 25%; } }
-@media (min-width: 1600px) {
-  figure.image {
-    width: 20%; } }

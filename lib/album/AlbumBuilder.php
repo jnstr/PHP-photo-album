@@ -86,9 +86,9 @@ class AlbumBuilder {
 				$string =
 					'<figure class="image">
 						<a class="popup" href="/' . ALBUM_FOLDER . '/o/' . $file . '" title="' . $file . '"  >
-							<img src="./includes/img/loader.gif" data-src="/' . ALBUM_FOLDER . '/t/' . $file . '" />
+							<img oncontextmenu="return false;" src="/includes/img/loader.gif" data-src="/' . ALBUM_FOLDER . '/t/' . $file . '" />
 						</a>
-						<a href="/' . ALBUM_FOLDER . '/d/' . $file . '" title="' . $file . '" class="download" >download</a>
+						<a href="/' . ALBUM_FOLDER . '/d/' . $file . '" title="Download" class="download" ></a>
 					</figure>';
 				$imageString .= $string;
 			}

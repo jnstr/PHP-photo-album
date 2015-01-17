@@ -1,0 +1,27 @@
+@mixin shadow() {
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.23), 0px 3px 10px rgba(0, 0, 0, 0.16);
+}
+
+@mixin border-radius($radius) {
+    border-radius: $radius;
+}
+
+@mixin circle($radius) {
+    width: $radius;
+    height: $radius;
+    @include border-radius(50%);
+}
+
+@mixin mq-minwidth($width) {
+    @media(min-width: $width) {
+        @content
+    }
+}
+
+@mixin transition($element, $time) {
+    -webkit-transition: $element $time;
+    -moz-transition: $element $time;
+    -ms-transition: $element $time;
+    -o-transition: $element $time;
+    transition: $element $time;
+}
