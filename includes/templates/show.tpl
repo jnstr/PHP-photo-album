@@ -8,14 +8,7 @@
 
 <script>
     $(function() {
-        $('div').magnificPopup({
-            type: 'image',
-            delegate: 'a.popup',
-            gallery: {
-                enabled: true
-            }
-        });
-
-       $('#imageAlbum img').unveil();
+        $('.popup').swipebox();
+        $('#imageAlbum img').unveil();
     });
 </script>
