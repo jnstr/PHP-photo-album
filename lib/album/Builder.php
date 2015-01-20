@@ -1,23 +1,37 @@
 <?php
-class AlbumBuilder {
+namespace Jnstr\Album;
+
+
+use PhpThumb;
+
+/**
+ * Class Builder
+ * @package Jnstr\Album
+ */
+class Builder {
+
+	/**
+	 * Check if we want (or need) to rebuild the album
+	 */
+	public function check() {
+		// only if the index-view does not exist, of if the rebuild get-param has been set
+		return (bool)(!file_exists(VIEW_PATH . '/index.html') || (isset($_GET['rebuild']) && $_GET['rebuild'] == '1'));
+	}
 
 	/**
 	 * Rebuild the album:
-	 * a. remove all thumbnails and re-create tham
+	 * a. remove all thumbnails and re-create them
 	 * b. re-generate the viewscript
 	 */
 	public function build() {
-		// only if the index-view does not exist, of if the rebuild get-param has been set
-		if (!file_exists(VIEW_PATH . '/index.html') || (isset($_GET['rebuild']) && $_GET['rebuild'] == '1')) {
-			// clear thumbnail folder
-			$this->clearThumbnails();
+		// clear thumbnail folder
+		$this->clearThumbnails();
 
-			// generate the thumbnails
-			$this->generateThumbnails();
+		// generate the thumbnails
+		$this->generateThumbnails();
 
-			// generate the view
-			$this->generateView();
-		}
+		// generate the view
+		$this->generateView();
 	}
 
 	/**
@@ -33,6 +47,9 @@ class AlbumBuilder {
 	 * Generate the thumbnails
 	 */
 	protected function generateThumbnails() {
+		// this could take a while
+		set_time_limit(-1);
+
 		// create thumb path if it does not exist yet
 		if(!file_exists(ALBUM_PATH_THUMBNAILS)) mkdir(ALBUM_PATH_THUMBNAILS);
 
@@ -108,7 +125,6 @@ class AlbumBuilder {
 		$layout = file_get_contents(INCLUDE_FOLDER . '/templates/layout.tpl');
 		$layout = str_replace('{$content}', $content, $layout);
 		$layout = str_replace('{$title}', ALBUM_NAME, $layout);
-
 		// create view
 		$content = $layout;
 		$fp = fopen(VIEW_PATH . '/index.html',"wb");

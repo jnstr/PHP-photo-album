@@ -1,18 +1,22 @@
 <?php
-class AlbumDownload {
+namespace Jnstr\Album;
+
+
+/**
+ * Class Download
+ * @package Jnstr\Album
+ */
+class Download {
 
 	/**
 	 * Download a single image (given by the get params)
 	 */
-	public function downloadImage() {
-		// only if we want to download a file
-		if (!isset($_GET['file'])) return;
-
+	public function image($file) {
 		// this doesn't seem a valid file name... ;-)
-		if (strpos($_GET['file'],'../') !== false || strpos($_GET['file'],'./') !== false) Error::displayErrorPage(403);
+		if (strpos($file,'../') !== false || strpos($file,'./') !== false) Error::displayErrorPage(403);
 
 		// the file path
-		$file = ALBUM_PATH_ORIGINAL . '/' . $_GET['file'];
+		$file = ALBUM_PATH_ORIGINAL . '/' . $file;
 
 		// force the browser to download the file
 		if ((isset($file))&&(file_exists($file))) {

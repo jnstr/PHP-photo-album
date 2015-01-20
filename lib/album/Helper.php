@@ -1,4 +1,7 @@
 <?php
+namespace Jnstr\Album;
+
+
 class Helper {
 
 	/**
