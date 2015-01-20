@@ -1,41 +1,43 @@
-simple-responsive-php-photo-album
+PHP photo album
 =================================
 
 A simple responsive photo album, written in PHP
-
-This project is still under construction, so use at your own risk (or contribute to fix some bugs)
-
 
 what?
 --------------
 
 This is a (very) simple photo album, written in PHP.
-All you have to do is add photos to the correct folder and PHP does the magic :)
-It's responsive and uses unveil.js to lazy-load the thumbnails.
-Magnific popup is used to show the hi-res images.
+All you have to do is add photos to the correct folder and PHP does the magic, setup the config file and you're ready to go.
 
-**As from 2014-03-01, this photo albums no supports multiple albums within the same project.**
-
+It's responsive, uses unveil.js to lazy-load the thumbnails and uses swipebox to show the hi-res images.
 
 how?
 --------------
+Clone this project to your webspace root or subdomain (no support for subfolders).
 
-If you want to use this photo album on your web space, the only folder that matters to you is the 'albums' folder.
+For each new album to create, add a new folder inside the 'albums' folder with this structure:
 
-For each album that you want to create, you have to create this folder structure:
 ```
-albums (this one already exists :) )
+albums (this one already exists)
 ├── albumname
 │   ├── original
 │   ├── thumbnails
 │   ├── view
 │   ├── config.php
 ```
+You only have to add the hi-res images to the 'originals' folder and setup the config file:
+```php
+<?php
+$config = array(
+    // The album name
+    'name' => 'My album',
+    // The password for the album (comment this out if you don't want a password)
+    'password' => 'p@ssw0rd'
+);
+```
+Define the album you want to show by adding the album name to the url (e.g. http://www.example.com/albumname).
 
-
-Add you full-res images to the original-folder and use your browser to navigate to the location of the website.
-Define the album you want to show by adding the album name to the url.
-Like this: http://www.just-some-non-existing-url.com/albumname
+On first load, the thumbnails and html are rendered. The html does not auto update, so if you changed some of the pictures, you'll have to rebuild the album manually by appending 'rebuild' to the url (e.g. http://www.example.com/albumname/rebuild)
 
 The thumbnails will be generated using the PHP GD extension.
 When the thumnbails are generated, an index.html will be generated in the view-folder to speed up future loading of the page.
@@ -45,28 +47,8 @@ The URL becomes: http://www.just-some-non-existing-url.com/albumname/rebuild
 This deletes the index.html file in the view-folder, and all the thumbnails to re-create the whole album.
 This can come in handy if you want a new album title of if you updated some images.
 
-### configuration
-
-There are 2 configuration options for this album, both can be set in the config.php file.
-
-The first one is the album name. You can define the album name by following code:
-`define('ALBUM_NAME','Here comes the album name');`
-
-There is also a possibility to password-protect your album. Define the password like this:
-`define('ALBUM_PW', 'p@ssw0rd');`
-If you don't want a password for you album, don't define it :)
-
-still to do
---------------
-
-- make the rebuild more save (so not everybody can fire ?rebuild=1)
-- use namespaces
-- make it possible to download a zip of all images
-
-
 requirements
 --------------
 
 - PHP >=5.3
 - PHP GD extension
-- Some images to show
