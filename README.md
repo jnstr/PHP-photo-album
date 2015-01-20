@@ -39,14 +39,6 @@ Define the album you want to show by adding the album name to the url (e.g. http
 
 On first load, the thumbnails and html are rendered. The html does not auto update, so if you changed some of the pictures, you'll have to rebuild the album manually by appending 'rebuild' to the url (e.g. http://www.example.com/albumname/rebuild)
 
-The thumbnails will be generated using the PHP GD extension.
-When the thumnbails are generated, an index.html will be generated in the view-folder to speed up future loading of the page.
-
-If you want to rebuild the album (including thumbnails), just add the 'rebuild' to the album url:
-The URL becomes: http://www.just-some-non-existing-url.com/albumname/rebuild
-This deletes the index.html file in the view-folder, and all the thumbnails to re-create the whole album.
-This can come in handy if you want a new album title of if you updated some images.
-
 requirements
 --------------
 
