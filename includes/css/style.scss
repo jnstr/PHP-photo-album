@@ -21,7 +21,10 @@ body {
         font: {
             family: 'Comfortaa', cursive;
             weight: normal;
-            size: 36px;
+            size: 28px;
+        }
+        @include mq-minwidth(400px) {
+            font-size: 36px;
         }
         display: block;
         color: white;
