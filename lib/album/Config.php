@@ -35,17 +35,6 @@ class Config
 
 
     /**
-     * Constructor for the album config
-     */
-    public function __construct()
-    {
-        // define the album name
-        $this->name = ! isset($_GET['album']) ? $_GET['album'] : null;
-        // define the
-        $this->password = ! isset($_GET['album']) ? $_GET['album'] : null;
-    }
-
-    /**
      * Load the config for the album
      */
     public function load()
