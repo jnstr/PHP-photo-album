@@ -71,6 +71,10 @@ Class PhpThumb {
 
 		// Re-sample - create image canvas of x, y size
 		$this->imageResized = imagecreatetruecolor($optimalWidth, $optimalHeight);
+		// support for transparent png
+        	imagealphablending( $this->imageResized, false );
+        	imagesavealpha( $this->imageResized, true );
+        	// let's go
 		imagecopyresampled($this->imageResized, $this->image, 0, 0, 0, 0, $optimalWidth, $optimalHeight, $this->width, $this->height);
 
 
@@ -221,6 +225,10 @@ Class PhpThumb {
 
 		// Crop the image, starting from the center
 		$this->imageResized = imagecreatetruecolor($newWidth , $newHeight);
+		// support for transparent png
+	        imagealphablending( $this->imageResized, false );
+	        imagesavealpha( $this->imageResized, true );
+	        // let's go
 		imagecopyresampled($this->imageResized, $crop , 0, 0, $cropStartX, $cropStartY, $newWidth, $newHeight , $newWidth, $newHeight);
 	}
 
